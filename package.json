@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "generate-blog-paths": "node fetchBlogPosts.js",
+    "serve": "node fetchBlogPosts.js && vue-cli-service serve",
+    "build": "node fetchBlogPosts.js && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "gray-matter": "^4.0.3",
+    "markdown-it-anchor": "^9.2.0",
+    "vue": "^3.2.13",
+    "vue-markdown-render": "^2.2.1",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
