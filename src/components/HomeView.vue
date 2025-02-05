@@ -6,9 +6,12 @@
             <p>{{ new Date(post.data.CreatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</p>
 
           <div class="post-content">
-            <h1>{{ post.data.Title }}</h1>
-            <p>{{ post.data.Summary || "Summary not available" }}</p>
-            <p>read more -></p>
+            <h1 class="title">{{ post.data.Title }}</h1>
+            <p class="summary">{{ post.data.Summary || "Summary not available" }}</p>
+            <div class="tags">
+              <p v-for="tag in post.data.tags" :key="tag" class="tag">{{ tag }}</p>
+            </div>
+            <p class="read-more">read more -></p>
           </div>
         </router-link>
       </div>
@@ -69,8 +72,24 @@
   };
   </script>
   
-  <style scoped>
+  <style>
 
+.tags {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tag {
+  width: fit-content;
+  display: inline-block;
+  padding: 1rem;
+  font-size: small;
+  font-weight: 600;
+  color:#f4f4f4;
+  background-color: #777777;
+  border-radius: 5px;
+}
 
 .posts-container {
   display: grid;
@@ -97,12 +116,12 @@
     height: 100%
 }
 
-.post-card h1 {
+.title {
   font-size: 1.5rem;
   margin: 0;
 }
 
-.post-card p {
+.summary, .read-more {
   font-size: 1rem;
   color: #555;
 }
