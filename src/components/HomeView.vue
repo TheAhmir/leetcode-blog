@@ -1,5 +1,5 @@
 <template>
-    <h1>Politica Sessions</h1>
+    <h1>LeetCode</h1>
     <div class="posts-container">
       <div v-for="post in posts" :key="post.data.CreatedAt" class="post-card">
         <router-link :to="{ path: `/post/${post.data.slug}` }">
