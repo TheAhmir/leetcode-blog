@@ -75,9 +75,9 @@
   <style>
 
 .tags {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .tag {
@@ -102,7 +102,7 @@
   background-color: #f4f4f4;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease; /* Adjusted timing function and duration */
   cursor: pointer; /* Fixed the typo */
 }
