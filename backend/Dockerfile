@@ -1,4 +1,4 @@
-FROM julia:1.11
+FROM julia:1.11-alpine
 
 WORKDIR /app
 
@@ -12,4 +12,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["julia", "--project=.", "server.jl"]
+ENV JULIA_NUM_THREADS=2
+
+CMD ["julia", "--project=.", "--startup-file=no", "server.jl"]
