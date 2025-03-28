@@ -8,8 +8,6 @@ RUN julia -e 'using Pkg; Pkg.activate("."); Pkg.instantiate()'
 
 COPY . .
 
-ENV PORT=8000
-
 EXPOSE 8000
 
 CMD ["julia", "--project=.", "server.jl"]
