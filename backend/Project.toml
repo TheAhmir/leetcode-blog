@@ -1,5 +1,5 @@
-
 [deps]
+DotEnv = "4dc1fcf4-5e3b-5448-94ab-0c38ec0385c1"
 Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 MarkdownMetadata = "fb62d85b-fb77-415a-8de2-93a2cbbff9b6"
