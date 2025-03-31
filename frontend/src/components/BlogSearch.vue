@@ -28,7 +28,7 @@ const fetchPosts = async () => {
   try {
     const response = await fetch(import.meta.env.VITE_APP_API)
     const data = await response.json()
-    results.value = data
+    results.value = Object.values(data)
     filterPosts()
   } catch (error) {
     console.error('Error fetching data:', error)
