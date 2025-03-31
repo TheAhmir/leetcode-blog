@@ -3,35 +3,22 @@ import {ref, onMounted, watch} from 'vue'
 import {marked}from 'marked'
 import "markdown-it-vue/dist/markdown-it-vue.css";
 import MarkdownIt from "markdown-it";
-import MarkdownItAbbr from "markdown-it-abbr";
-import MarkdownItAnchor from "markdown-it-anchor";
-import MarkdownItFootnote from "markdown-it-footnote";
-import MarkdownItHighlightjs from "markdown-it-highlightjs";
-import MarkdownItSub from "markdown-it-sub";
-import MarkdownItSup from "markdown-it-sup";
-import MarkdownItTasklists from "markdown-it-task-lists";
-import MarkdownItTOC from "markdown-it-toc-done-right";
 
 const isDark = ref(true)
 const markdown = new MarkdownIt()
-  .use(MarkdownItAbbr)
-  .use(MarkdownItAnchor)
-  .use(MarkdownItFootnote)
-  .use(MarkdownItHighlightjs)
-  .use(MarkdownItSub)
-  .use(MarkdownItSup)
-  .use(MarkdownItTasklists);
 const props = defineProps<{slug: string}>()
 const metadata = ref({})
+const tags = ref([])
 const renderedMarkdown = ref("")
 const title = ref("")
 
 const fetch_post = async () => {
   try {
-    const response = await fetch(`http://localhost:9000/${props.slug}`)
+    const response = await fetch(`${import.meta.env.VITE_APP_API}/${props.slug}`)
     const data = await response.json()
     metadata.value = data
     title.value = data.title[0]
+    tags.value = data.tags
     renderedMarkdown.value = markdown.render(data.content[0])
   } catch (error) {
       console.error('Error fetching data:', error)
@@ -63,8 +50,8 @@ watch(isDark, (newValue) => {
       </div>
       <h1 class="title flex w-full justify-center items-center">{{title}}</h1>
       <div class="flex w-full justify-center items-center">
-        <div class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] justify-center items-center text-center gap-x-3 mb-2 mt-2 w-full max-w-screen-lg px-4">
-            <span :class="['p-2 font-semibold bg-blue-200 rounded-full text-[#1F2937]', /^#\d+$/.test(tag) ? 'post-leet-tag' : '']" v-for="tag in metadata.tags">{{tag}}</span>
+        <div v-if="tags" class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] justify-center items-center text-center gap-x-3 mb-2 mt-2 w-full max-w-screen-lg px-4">
+            <span :class="['p-2 font-semibold bg-blue-200 rounded-full text-[#1F2937]', /^#\d+$/.test(tag) ? 'post-leet-tag' : '']" v-for="tag in tags">{{tag}}</span>
           </div>
       </div>
     </div>

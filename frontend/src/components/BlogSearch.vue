@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 
-const results = ref([])
+interface Post {
+  title: string[]
+  tags: string[]
+  summary: string[]
+  createdat: string[]
+  slug: string[]
+  content: string[]
+}
+
+const results = ref<Post[]>([])
 const search = ref('')
-const posts = ref([])
+const posts = ref<Post[]>([])
 
 const filterPosts = () => {
   if (!search.value) {
@@ -11,15 +20,15 @@ const filterPosts = () => {
     return
   }
   posts.value = results.value.filter(post => {
-    return post.metadata.title.toLowerCase().includes(search.value.toLowerCase())
+    return post.title[0].toLowerCase().includes(search.value.toLowerCase())
   })
 }
 
 const fetchPosts = async () => {
   try {
-    const response = await fetch('http://localhost:9000')
+    const response = await fetch(import.meta.env.VITE_APP_API)
     const data = await response.json()
-    results.value = Object.values(data)
+    results.value = data
     filterPosts()
   } catch (error) {
     console.error('Error fetching data:', error)
@@ -47,7 +56,7 @@ watch(search, filterPosts)
         
         </div>
         
-        <h3 class="text-sm font-medium m-4 ml-6 w-full p-1 text-start" v-if="result.summary[0]">{{result.summary[0]}}</h3>   
+        <h3 class="text-sm font-medium m-4 ml-6 w-full p-1 text-start" v-if="result.summary">{{result.summary[0]}}</h3>   
         <p class="read-more-tag">read more</p>
         
       </router-link>
