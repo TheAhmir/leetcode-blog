@@ -5,6 +5,7 @@ import "markdown-it-vue/dist/markdown-it-vue.css";
 import MarkdownIt from "markdown-it";
 
 const isDark = ref(true)
+const isFetched = ref(false)
 const markdown = new MarkdownIt()
 const props = defineProps<{slug: string}>()
 const metadata = ref({})
@@ -13,6 +14,7 @@ const renderedMarkdown = ref("")
 const title = ref("")
 
 const fetch_post = async () => {
+  if (isFetched.value) return
   try {
     const response = await fetch(`${import.meta.env.VITE_APP_API}/${props.slug}`)
     const data = await response.json()
@@ -20,6 +22,7 @@ const fetch_post = async () => {
     title.value = data.title[0]
     tags.value = data.tags
     renderedMarkdown.value = markdown.render(data.content[0])
+    isFetched.value = true
   } catch (error) {
       console.error('Error fetching data:', error)
   }
