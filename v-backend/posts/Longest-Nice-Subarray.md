@@ -1,7 +1,7 @@
 ---
 title: Longest Nice Subarray
 tags:
-  - '#2401'
+  - #2401
   - Medium
   - LeetCode
   - Sliding Window

@@ -24,14 +24,15 @@ const markdown = new MarkdownIt()
 const props = defineProps<{slug: string}>()
 const metadata = ref({})
 const renderedMarkdown = ref("")
+const title = ref("")
 
 const fetch_post = async () => {
   try {
-    const response = await fetch(`http://localhost:8000/posts/${props.slug}`)
+    const response = await fetch(`http://localhost:9000/${props.slug}`)
     const data = await response.json()
-    metadata.value = data.metadata
-    renderedMarkdown.value = markdown.render(data.content)
-    console.log(renderedMarkdown)
+    metadata.value = data
+    title.value = data.title[0]
+    renderedMarkdown.value = markdown.render(data.content[0])
   } catch (error) {
       console.error('Error fetching data:', error)
   }
@@ -60,7 +61,7 @@ watch(isDark, (newValue) => {
         <button class="text-2xl grayscale bg-gray-500 hover:bg-gray-800 hover:cursor-pointer h-fit p-2 rounded-full" @click="toggleTheme" v-if="isDark">🌙</button>
         <button class="text-2xl bg-gray-300 hover:bg-gray-100 hover:cursor-pointer h-fit p-2 rounded-full" @click="toggleTheme" v-else>☀️</button>
       </div>
-      <h1 class="title flex w-full justify-center items-center">{{metadata.title}}</h1>
+      <h1 class="title flex w-full justify-center items-center">{{title}}</h1>
       <div class="flex w-full justify-center items-center">
         <div class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] justify-center items-center text-center gap-x-3 mb-2 mt-2 w-full max-w-screen-lg px-4">
             <span :class="['p-2 font-semibold bg-blue-200 rounded-full text-[#1F2937]', /^#\d+$/.test(tag) ? 'post-leet-tag' : '']" v-for="tag in metadata.tags">{{tag}}</span>

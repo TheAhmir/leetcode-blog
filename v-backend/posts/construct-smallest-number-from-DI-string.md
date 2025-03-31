@@ -1,7 +1,7 @@
 ---
 title: Construct Smallest Number From DI String
 tags:
-  - '#2375'
+  - #2375
   - Medium
   - LeetCode
 summary: Backtracking using stack.

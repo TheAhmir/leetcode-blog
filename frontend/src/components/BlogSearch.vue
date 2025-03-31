@@ -17,7 +17,7 @@ const filterPosts = () => {
 
 const fetchPosts = async () => {
   try {
-    const response = await fetch('http://localhost:8000/posts')
+    const response = await fetch('http://localhost:9000')
     const data = await response.json()
     results.value = Object.values(data)
     filterPosts()
@@ -34,20 +34,20 @@ watch(search, filterPosts)
   <div class="w-full flex flex-col justify-center items-center m-2 ">
       <input class="flex justify-center items-center text-center text-2xl m-8" v-model="search" placeholder="Search"></input>
     <div v-if="results.length !== 0" class="flex grid md:grid-cols-2 lg:grid-cols-4 gap-8" >
-      <router-link class="flex flex-col p-4 justify-top items-center text-center border-2 rounded-xs shadow-lg shadow-gray-500/50 hover:scale-110" :to="{name: 'postDetail', params: {slug: result.metadata.slug}, state: {result}}" v-for="(result, index) in posts" :key="index">
-        <p :class="['flex w-full font-semibold text-xs justify-end m-0 mr-4 p-0', result.metadata.createdat ? '' : 'text-gray-500']">{{result.metadata.createdat ? result.metadata.createdat : "unknown"}}</p>
-        <h2>{{result.metadata.title}}</h2>
+      <router-link class="flex flex-col p-4 justify-top items-center text-center border-2 rounded-xs shadow-lg shadow-gray-500/50 hover:scale-110" :to="{name: 'postDetail', params: {slug: result.slug[0]}, state: {result}}" v-for="(result, index) in posts" :key="index">
+        <p :class="['flex w-full font-semibold text-xs justify-end m-0 mr-4 p-0', result.createdat[0] ? '' : 'text-gray-500']">{{result.createdat[0] ? result.createdat[0] : "unknown"}}</p>
+        <h2>{{result.title[0]}}</h2>
         
         <div class="flex w-full justify-center items-center">
-          <div class="grid grid-cols-[repeat(auto-fit,minmax(90px,1fr))] justify-center items-center text-center gap-x-3 mb-2 mt-2 w-full" v-if="result.metadata.tags" >
-            <div  v-for="tag in result.metadata.tags">
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(90px,1fr))] justify-center items-center text-center gap-x-3 mb-2 mt-2 w-full" v-if="result.tags" >
+            <div  v-for="tag in result.tags">
              <p :class="['p-2 font-semibold bg-blue-200 text-xs', /^#\d+$/.test(tag) ? 'leet-tag' : '']">{{tag}}</p>
             </div>
           </div>
         
         </div>
         
-        <h3 class="text-sm font-medium m-4 ml-6 w-full p-1 text-start" v-if="result.metadata.summary">{{result.metadata.summary}}</h3>   
+        <h3 class="text-sm font-medium m-4 ml-6 w-full p-1 text-start" v-if="result.summary[0]">{{result.summary[0]}}</h3>   
         <p class="read-more-tag">read more</p>
         
       </router-link>

@@ -1,10 +1,10 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: ./v-backend
       dockerfile: Dockerfile
     ports:
-      - '8000:8000'
+      - '9000:9000'
 
   frontend:
     build:
