@@ -43,7 +43,7 @@ watch(search, filterPosts)
   <div class="w-full flex flex-col justify-center items-center m-2 ">
       <input class="flex justify-center items-center text-center text-2xl m-8" v-model="search" placeholder="Search"></input>
     <div v-if="results.length !== 0" class="flex grid md:grid-cols-2 lg:grid-cols-4 gap-8" >
-      <router-link class="flex flex-col p-4 justify-top items-center text-center border-2 rounded-xs shadow-lg shadow-gray-500/50 hover:scale-110" :to="{name: 'postDetail', params: {slug: result.slug[0]}, state: {result}}" v-for="(result, index) in posts" :key="index">
+      <router-link class="flex flex-col p-4 justify-top items-center text-center border-2 rounded-xs shadow-lg shadow-gray-500/50 hover:scale-110" :to="{name: 'postDetail', params: {slug: result.slug[0]}}" v-for="(result, index) in posts" :key="index">
         <p :class="['flex w-full font-semibold text-xs justify-end m-0 mr-4 p-0', result.createdat[0] ? '' : 'text-gray-500']">{{result.createdat[0] ? result.createdat[0] : "unknown"}}</p>
         <h2>{{result.title[0]}}</h2>
         
