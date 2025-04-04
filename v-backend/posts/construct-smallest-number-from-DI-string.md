@@ -9,7 +9,7 @@ createdat: 2025-03-19T12-01-44
 slug: fd532465-8242-4ec5-869b-80212b21e28b
 ---
 
-# Construct Smallest Number From DI String – LeetCode #2375
+# LeetCode #2375
 
 > **Difficulty:** Medium\
 > **Link:** [LeetCode – Construct Smallest Number From DI String](https://leetcode.com/problems/construct-smallest-number-from-di-string/)

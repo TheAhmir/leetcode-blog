@@ -10,7 +10,7 @@ createdat: 2025-03-18T11:24:13
 slug: 02391225-4d0d-4f17-af31-d0d5dec0e679
 ---
 
-# Longest Nice Subarray – LeetCode #2401
+# LeetCode #2401
 
 > **Difficulty:** Medium\
 > **Link:** [LeetCode – Longest Nice Subarray](https://leetcode.com/problems/longest-nice-subarray/)
