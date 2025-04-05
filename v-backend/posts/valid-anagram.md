@@ -31,6 +31,8 @@ _Anagram_: A word or phrase formed by reordering the letters of another word or 
 
 ---
 
+## Introduction
+
 "Valid Anagrams" is an interesting problem, because of it's many possible acceptable solutions. To begin, the question requires that we confirm 2 requirements are met between 2 strings:
 
 - they consist of the same letters
