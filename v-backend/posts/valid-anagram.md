@@ -5,7 +5,7 @@ tags:
   - Easy
   - LeetCode
   - Multiple Solutions
-summary: Give two strings s and t, return true if t is an anagram of s, and false otherwise.
+summary: Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 createdat: 2025-04-04
 slug: 075efcca-96b5-4411-b0ae-50465dcd2db6
 ---
@@ -23,11 +23,15 @@ _Anagram_: A word or phrase formed by reordering the letters of another word or 
 
 ### Example 1:
 
+```
 **Input**: s = "anagram", t = "nagaram"
 **Output**: true
+```
 
+```
 **Input**: s = "rat", t = "car"
 **Output**: false
+```
 
 ---
 

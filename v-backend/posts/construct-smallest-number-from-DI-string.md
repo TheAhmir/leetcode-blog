@@ -5,7 +5,7 @@ tags:
   - Medium
   - LeetCode
 summary: Backtracking using stack.
-createdat: 2025-03-19T12-01-44
+createdat: 2025-03-19
 slug: fd532465-8242-4ec5-869b-80212b21e28b
 ---
 

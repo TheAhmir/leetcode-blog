@@ -6,7 +6,7 @@ tags:
   - LeetCode
   - Sliding Window
 summary: Return the length of the longest "nice" subarray -> sliding window solution
-createdat: 2025-03-18T11:24:13
+createdat: 2025-03-18
 slug: 02391225-4d0d-4f17-af31-d0d5dec0e679
 ---
 
