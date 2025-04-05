@@ -12,7 +12,6 @@ import MarkdownItSup from "markdown-it-sup";
 import MarkdownItTasklists from "markdown-it-task-lists";
 import MarkdownItTOC from "markdown-it-toc-done-right";
 
-const isDark = ref(true)
 const isFetched = ref(false)
 const markdown = new MarkdownIt()
    .use(MarkdownItAbbr)
@@ -43,18 +42,11 @@ const fetch_post = async () => {
   }
 }
 
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-}
 
 onMounted(() => {
   fetch_post()
 })
 
-watch(isDark, (newValue) => {
-  document.documentElement.style.backgroundColor = newValue ? '#F9FAFB':'#181818'
-  document.documentElement.style.color = newValue ? '#1F2937' : '#E5E7EB'
-});
 
 </script>
 
@@ -63,8 +55,6 @@ watch(isDark, (newValue) => {
     <div>
       <div class="flex w-full justify-between items-center">
         <a class="backlink flex w-fit text-2xl font-bold" href="/"><</a>
-        <button class="text-2xl grayscale bg-gray-500 hover:bg-gray-800 hover:cursor-pointer h-fit p-2 rounded-full" @click="toggleTheme" v-if="isDark">🌙</button>
-        <button class="text-2xl bg-gray-300 hover:bg-gray-100 hover:cursor-pointer h-fit p-2 rounded-full" @click="toggleTheme" v-else>☀️</button>
       </div>
       <h1 class="title flex w-full justify-center items-center">{{title}}</h1>
       <div class="flex w-full justify-center items-center">
@@ -92,9 +82,6 @@ watch(isDark, (newValue) => {
   color: dimgray;
 }
 
-a:hover .read-more-tag {
-  color: black;
-}
 
 .post-leet-tag {
   background-color: #FFA116;
