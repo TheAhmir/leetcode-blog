@@ -66,6 +66,8 @@ Output: 480
 Explanation: The sum of all XOR totals for every subset is 480.
 ```
 
+---
+
 ## Introduction
 
 Although this problem is categorized as easy, the thought process to solve it is deceptively complex. While this problem tasks us with finding the sum of total xor of each subset of a list, the more difficult part is actually programming a way to look at each individual subset. We are't able to do a simple loop or use a sliding window to retrieve every possible subset. Instead, the solution is found in utilizing recursion (calling a function within itself) and depth first search (a powerful algorithm to iterate through a data structure).
