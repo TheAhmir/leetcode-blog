@@ -153,4 +153,8 @@ def subsetXORSum(self, nums: List[int]) -> int:
     return dfs(0, 0)
 ```
 
+---
+
+## Final Thoughts
+
 It's crazy home many calculations we can do with so little code. As I said at the beginning, it really is deceptive to call this an easy question. Although, this solution doesn't help my case. By utilizing recursion to perform depth first search and optimizing our solution to minimize needed space and calculations, we're able to come up with a beautiful solution to aggregate calculations of every possible subset of a list -- showcasing how algorithms and data structures can be really useful to solve complex tasks efficiently.
