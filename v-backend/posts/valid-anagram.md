@@ -4,7 +4,6 @@ tags:
   - #242
   - Easy
   - LeetCode
-  - Multiple Solutions
 summary: Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 createdat: 2025-04-04
 slug: 075efcca-96b5-4411-b0ae-50465dcd2db6

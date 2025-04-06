@@ -5,7 +5,6 @@ tags:
   - Easy
   - LeetCode
   - Recursion
-  - Depth First Search
   - DFS
 summary: Given an array of numbers, return the sum of all XOR totals for every subset of nums.
 createdat: 2025-04-05
