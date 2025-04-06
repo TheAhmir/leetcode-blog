@@ -16,20 +16,24 @@ slug: 075efcca-96b5-4411-b0ae-50465dcd2db6
 
 ---
 
-## Note
+# Problem
+
+Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
+
+### Note
 
 _Anagram_: A word or phrase formed by reordering the letters of another word or phrase, such as _satin_ to _stain_.
 
-### Example 1:
+### Examples:
 
 ```
-**Input**: s = "anagram", t = "nagaram"
-**Output**: true
+Input: s = "anagram", t = "nagaram"
+Output: true
 ```
 
 ```
-**Input**: s = "rat", t = "car"
-**Output**: false
+Input: s = "rat", t = "car"
+Output: false
 ```
 
 ---
