@@ -82,22 +82,19 @@ We have to think in a rather tricky way -- as a tree of strings. We visualize a 
 subsets of [5, 1, 6] are [5], [1], [6], [5, 1], [5, 6], [1, 6] and [5, 1, 6]
 
 tree:
-                |-[]
-          |-[]--|
-          |     |-[6]
-    |-[]--|     
-    |     |      |-[]
-    |     |-[1]--|
-    |            |-[6]
-[]--|
-    |            |-[] 
-    |      |-[]--|
-    |      |     |-[6]
-    |      |
-    |-[5]--|
-           |      |-[]
-           |-[1]--| 
-                  |-[6]
+                              [ ]
+                               |
+              |---------------------------------|
+              |                                 |
+             [ ]                               [5]
+              |                                 |
+      |----------------|                |----------------|
+      |                |                |                |
+     [ ]              [1]              [ ]              [1]
+      |                |                |                |
+ |---------|      |---------|      |---------|      |---------| 
+ |         |      |         |      |         |      |         |
+[ ]       [6]    [ ]       [6]    [ ]       [6]    [ ]       [6]
 ```
 
 Here we create 2 branches as the first 'level' where we split into different paths, one containing 5 and one without 5. We continue this for each following value. This essentially creates every possible path or string we can create with this list of numbers, including identical subsets that contain the same values in different positions. Pretty cool right?
