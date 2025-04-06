@@ -31,6 +31,16 @@ const fetchPosts = async () => {
     const response = await fetch(import.meta.env.VITE_APP_API)
     const data = await response.json()
     results.value = Object.values(data)
+    results.value = results.value.sort((a,b) => {
+      if (a.createdat[0] < b.createdat[0]) {
+        return 1;
+      } else if (a.createdat[0] > b.createdat[0]) {
+        return -1
+      } else {
+        return 1
+      }
+    })
+    console.log(results.value)
     filterPosts()
   } catch (error) {
     console.error('Error fetching data:', error)
